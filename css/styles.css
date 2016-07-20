@@ -1,16 +1,14 @@
+html {
+	background-color: #4E4E4E;   
+	height: 100%;
+	width: 100%;
+}
+
 body {
-	font-family: "Roboto" "helvertica" "sans-serif";
-	background-color: #4E4E4E;    
-}
-
-p {
-	font-family: "Roboto" "helvertica" "sans-serif";
-	size: 1em;
-}
-
-h1 {
-	font-family: "Roboto" "helvertica" "sans-serif";
-	size: 2em;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	margin: 0;
 }
 
 .login-page {
@@ -152,6 +150,12 @@ h1 {
 	padding: 5px;
 } 
 
+#bar:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
 #bar img {
 	height: 30px;
 	width: auto;
@@ -160,6 +164,7 @@ h1 {
 }
 
 #log-out {
+	font-family: "Roboto", sans-serif;
 	margin-right: 20px;
 	margin-left: 150px;
 	margin-top: 5px;
@@ -210,44 +215,80 @@ h1 {
 	background-color: #C8C8C8;
 }
 
-.public-projects {
+#new-project_button {
+	position: fixed; 
+	bottom: 20px; 
+	right: 30px;
+}
+
+#new-project_button button {
+	color: #F8F8F8;
+	font-size: 4em;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+#new-project_button button:hover {
+	cursor: pointer;
+	color: #FBB03B;
+}
+
+#feed-box {
+	width: 98%;
+	height: 92%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+
+
+
+
+
+#public-projects {
 	width: 80%;
-	height: 500px;
-	display: inline-block;
-	position: relative;
-	top: 50px;
-	overflow: scroll;
-
-
-	background-color: blue;
+	height: 100%;
+	float: left;
+	overflow-y: scroll;
 }
 
-.my-projects {
-	width: 20%;
-	height: 500px;
+#my-projects {
+	width: 19%;
+	height: 100%;
 	float: right;
-	display: inline-block;
-	position: relative;
-	top: 50px;
-	overflow: scroll;
+	overflow-y: scroll;
+	margin-left:10px 
+}
 
-
-
-
-	background-color: red;
+#public-projects h2, #my-projects h2 {
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	font-size: 16px;
+	color: #2E2E2E;
 }
 
 
+article {
+	margin: 20px;
+	float: left;
+	width: 200px;
+	height: 232px;
+	font-family: "Roboto", sans-serif;
+	font-weight: normal;
+	font-size: 16px;	
+	color: #2E2E2E;
+}
 
+article p {
+	margin: 0;
+	padding: 0;
+	display: inline-block;
+}
 
-
-
-
-
-
-
-
-
+#date {
+	float: right;
+}
 
 
 

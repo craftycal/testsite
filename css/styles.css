@@ -55,8 +55,6 @@ body {
   	padding: 15px;
   	color: #F8F8F8;
   	font-size: 14px;
-  	-webkit-transition: all 0.3 ease;
-  	transition: all 0.3 ease;
   	cursor: pointer;
 }
 
@@ -123,20 +121,6 @@ body {
   	color: #EF3B3A;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                  /*feed*/
 
 #bar {
@@ -161,6 +145,20 @@ body {
 	width: auto;
 	position: fixed;
 	left: 10px;
+}
+
+#back {
+	background-color: transparent;
+	font-size: 4em;
+	color: #FBB03B;
+	border: none;
+	vertical-align: middle;
+	outline: none;
+}
+
+#back:hover {
+	cursor: pointer;
+	color: #C8C8C8;
 }
 
 #log-out {
@@ -215,13 +213,13 @@ body {
 	background-color: #C8C8C8;
 }
 
-#new-project_button {
+#new-project-button-mover {
 	position: fixed; 
 	bottom: 20px; 
 	right: 30px;
 }
 
-#new-project_button button {
+#new-project-button-mover button {
 	color: #F8F8F8;
 	font-size: 4em;
 	background-color: transparent;
@@ -229,7 +227,7 @@ body {
 	outline: none;
 }
 
-#new-project_button button:hover {
+#new-project-button-mover button:hover {
 	cursor: pointer;
 	color: #FBB03B;
 }
@@ -240,11 +238,6 @@ body {
 	margin: 0 auto;
 	margin-top: 50px;
 }
-
-
-
-
-
 
 #public-projects {
 	width: 80%;
@@ -280,21 +273,82 @@ article {
 	color: #2E2E2E;
 }
 
-article p {
+article p, article h2 {
 	margin: 0;
 	padding: 0;
 	display: inline-block;
 }
 
-#date {
+.user-icon {
+	width: 16px;
+	height: 16px;
+}
+
+.date {
 	float: right;
 }
 
+#new-project-form {
+  	position: relative;
+  	z-index: 1;
+ 	background: #F8F8F8;
+  	max-width: 360px;
+  	margin: 100px auto 100px;
+  	padding: 45px;
+  	text-align: center;
+  	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+#new-project-form input {
+  	font-family: "Roboto", sans-serif;
+  	outline: 0;
+  	background: #f2f2f2;
+  	width: 100%;
+  	border: 0;
+  	margin: 0 0 15px;
+  	padding: 15px;
+  	box-sizing: border-box;
+  	font-size: 14px;
+}
+
+#new-project-form button {
+  	font-family: "Roboto", sans-serif;
+  	text-transform: uppercase;
+  	outline: 0;
+  	background: #FBB03B;
+  	width: 48%;
+  	border: 0;
+  	padding: 15px;
+  	color: #F8F8F8;
+  	font-size: 18px;
+  	cursor: pointer;
+  	margin-bottom: 10px;
+}
+
+#back-to-feed {
+	float: left;
+	color: #F8F8F8 !important;
+	background-color: #4E4E4E !important ;
+}
+
+#new-project-form button:after {
+	content: "";
+  	display: block;
+  	clear: both;
+}
 
 
+#new-project-form button:hover {
+  	background: #C8C8C8 !important;
+}
 
-
-
+#licence-comment {
+	font-size: 12px;
+	color: #C8C8C8;
+}
+#licence-comment span {
+	color: #FBB03B;
+}
 
 
 

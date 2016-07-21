@@ -288,13 +288,19 @@ article p, article h2 {
 	float: right;
 }
 
+form h2 {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 200;
+}
+
 #new-project-form {
   	position: relative;
   	z-index: 1;
  	background: #F8F8F8;
   	max-width: 360px;
   	margin: 100px auto 100px;
-  	padding: 45px;
+  	padding: 20px 45px;
   	text-align: center;
   	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }

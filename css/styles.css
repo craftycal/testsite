@@ -11,6 +11,95 @@ body {
 	margin: 0;
 }
 
+#content-box {
+	width: 98%;
+	height: 92%;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+
+/*  nav bar  */
+
+#bar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	background-color: #f8f8f8;
+	height: 30px;
+	width: 100%;
+	padding: 5px;
+} 
+
+#bar:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+#bar img {
+	height: 30px;
+	width: auto;
+	position: fixed;
+	left: 10px;
+}
+
+#log-out {
+	font-family: "Roboto", sans-serif;
+	margin-right: 20px;
+	margin-left: 150px;
+	margin-top: 5px;
+	color: #C8C8C8;
+	text-decoration: none;
+	float: right;
+	display: inline-block;
+}
+
+#navigation {
+	float: right;
+	width: 500px;
+}
+
+#log-out:hover {
+	color: #4E4E4E;
+}
+
+.search-bar {
+	position: fixed;
+	right: 20%;
+	top: 7px;
+	display: inline-block;
+
+}
+
+.search-input {
+	width: 200px;
+	height: 25px;
+	border: none;
+	vertical-align: middle;
+	outline: none;
+}
+
+.search-button {
+	background-color: #FBB03B;	
+	width: 25px;
+	height: 25px;
+	border: none;
+	vertical-align: middle;
+	position: relative;
+	right: 5px;
+	outline: none;
+}
+
+.search-button:hover {
+	cursor: pointer;
+	background-color: #C8C8C8;
+}
+
+
+/*  login / register */
+
 .login-page {
   width: 360px;
   padding: 10% 0 0;
@@ -43,6 +132,18 @@ body {
   	padding: 15px;
   	box-sizing: border-box;
   	font-size: 14px;
+}
+
+#tac_check {
+	display: inline-block;
+	width: 20px;
+}
+
+#tac_message {
+	font-family: "Roboto", sans-serif;
+	display: inline-block;
+	text-align: right;
+	margin-top: 0;
 }
 
 .form button {
@@ -121,97 +222,16 @@ body {
   	color: #EF3B3A;
 }
 
-                 /*feed*/
-
-#bar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	background-color: #f8f8f8;
-	height: 30px;
-	width: 100%;
-	padding: 5px;
-} 
-
-#bar:after {
-	content: '';
-	display: block;
-	clear: both;
+#licence-comment {
+	font-size: 12px;
+	color: #C8C8C8;
 }
-
-#bar img {
-	height: 30px;
-	width: auto;
-	position: fixed;
-	left: 10px;
-}
-
-#back {
-	background-color: transparent;
-	font-size: 4em;
+#licence-comment span {
 	color: #FBB03B;
-	border: none;
-	vertical-align: middle;
-	outline: none;
 }
 
-#back:hover {
-	cursor: pointer;
-	color: #C8C8C8;
-}
 
-#log-out {
-	font-family: "Roboto", sans-serif;
-	margin-right: 20px;
-	margin-left: 150px;
-	margin-top: 5px;
-	color: #C8C8C8;
-	text-decoration: none;
-	float: right;
-	display: inline-block;
-}
-
-#navigation {
-	float: right;
-	width: 500px;
-}
-
-#log-out:hover {
-	color: #4E4E4E;
-}
-
-.search-bar {
-	position: fixed;
-	right: 20%;
-	top: 7px;
-	display: inline-block;
-
-}
-
-.search-input {
-	width: 200px;
-	height: 25px;
-	border: none;
-	vertical-align: middle;
-	outline: none;
-}
-
-.search-button {
-	background-color: #FBB03B;	
-	width: 25px;
-	height: 25px;
-	border: none;
-	vertical-align: middle;
-	position: relative;
-	right: 5px;
-	outline: none;
-}
-
-.search-button:hover {
-	cursor: pointer;
-	background-color: #C8C8C8;
-}
+/*  feed page  */
 
 #new-project-button-mover {
 	position: fixed; 
@@ -230,13 +250,6 @@ body {
 #new-project-button-mover button:hover {
 	cursor: pointer;
 	color: #FBB03B;
-}
-
-#feed-box {
-	width: 98%;
-	height: 92%;
-	margin: 0 auto;
-	margin-top: 50px;
 }
 
 #public-projects {
@@ -279,20 +292,12 @@ article p, article h2 {
 	display: inline-block;
 }
 
-.user-icon {
-	width: 16px;
-	height: 16px;
-}
-
 .date {
 	float: right;
 }
 
-form h2 {
-	font-family: "Roboto", sans-serif;
-	font-size: 16px;
-	font-weight: 200;
-}
+
+/*  new project  */
 
 #new-project-form {
   	position: relative;
@@ -303,6 +308,12 @@ form h2 {
   	padding: 20px 45px;
   	text-align: center;
   	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+form h2 {
+	font-family: "Roboto", sans-serif;
+	font-size: 16px;
+	font-weight: 200;
 }
 
 #new-project-form input {
@@ -343,18 +354,58 @@ form h2 {
   	clear: both;
 }
 
-
 #new-project-form button:hover {
   	background: #C8C8C8 !important;
 }
 
-#licence-comment {
-	font-size: 12px;
+
+/*  404  */
+
+#error-head {
+	margin: auto;
+	color: #FBB03B;
+	font-family: "Roboto", sans-serif;
+	font-size: 10em;
+}
+
+#error-box {
+	position: relative;
+ 	background: #F8F8F8;
+  	margin: 50px auto;
+  	text-align: center;
+  	border-bottom: dashed 5px #232425;
+  	border-top: dashed 5px #232425;
+  	padding: 20px;
+  	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+#error-back {
+	font-family: "Roboto", sans-serif;
+	font-size: 4em;
+	color: #FBB03B;
+	text-decoration: none;
+}
+
+#error-back:hover {
 	color: #C8C8C8;
 }
-#licence-comment span {
-	color: #FBB03B;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

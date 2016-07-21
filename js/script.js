@@ -9,6 +9,7 @@ $(document).ready(function(){
    		document.location = 'newProject.html';
     });
 
+
 	$('#back-to-feed').click(function() { 
     	document.location = 'feed.html';
 	});

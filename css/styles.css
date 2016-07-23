@@ -7,8 +7,11 @@ html {
 body {
 	height: 100%;
 	width: 100%;
-	overflow: hidden;
 	margin: 0;
+}
+
+#feed_body {
+	overflow: hidden;
 }
 
 #content-box {

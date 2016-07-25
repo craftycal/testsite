@@ -37,10 +37,7 @@
 					<p class="date">00/00/00</p>
 				</article>
 
-			
-
 			</div>	
-			
 
 			<div id="my-projects">
 				<h2>My Projects.</h2>
@@ -51,12 +48,7 @@
 					<p class="date">00/00/00</p>
 				</article>	
 
-														
 			</div>	
-
-
-
-
 
 		</div>
 
@@ -68,8 +60,43 @@
 
 		<div id="new-project-button-mover"><button id="new-project-button"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></div>
 
-		
+		<div  class="popup-form">
+	
+				<form id="new-project-form">
+						<h2>New Project</h2>	
+						<!-- title -->
+						<input type="text" name="title" value="" placeholder="Title" >
+							<br><br>
 
+						<!-- file -->  
+						<input type="file" name="project-file">
+							<br><br>
+
+						<!-- image -->
+						<input type="file" name="thumbnail">
+							<br><br>
+
+						<!-- url -->
+						<input type="url" name="link" value="" placeholder="URL" >
+							<br><br>
+
+						<!-- licence  -->
+						<p id="licence-comment"><span><i class="fa fa-bell-o" aria-hidden="true"></i></span> To keep things simple we have abbreviated all the different licences to just open or closed, however please feel free to add and further licence information in the project description.</p>
+						<select name="cars">
+							 <option value="open">open</option>
+							 <option value="closed">closed</option>
+						</select>
+							<br><br>
+
+						<!-- description  -->
+						<input type="text" name="description" value="" placeholder="Description" >
+						<br><br>
+
+						<button type="button" id="back-to-feed"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
+						<button type="submit" id="new-project-submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button>
+				</form>
+
+		</div>		
 
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 		<script type="text/javascript" src="js/script.js"></script>

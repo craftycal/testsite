@@ -8,10 +8,11 @@ body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	padding: 0;
 }
 
 #feed_body {
-	overflow: hidden;
+	overflow: hidden !important;
 }
 
 #content-box {
@@ -21,6 +22,41 @@ body {
 	margin-top: 50px;
 }
 
+/*  scrollbar  */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 4px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background: #F8F8F8;
+  border: 0px none #ffffff;
+  border-radius: 13px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #F8F8F8;
+}
+::-webkit-scrollbar-track {
+  background: #232425;
+  border: 0px none #ffffff;
+  border-radius: 100px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
 
 /*  nav bar  */
 
@@ -302,12 +338,23 @@ article p, article h2 {
 
 /*  new project  */
 
+.popup-form {
+  	z-index: 3;	
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+	background-color: rgba(35,36,37,.8);
+}
+
 #new-project-form {
   	position: relative;
-  	z-index: 1;
+  	z-index: 6;
  	background: #F8F8F8;
   	max-width: 360px;
-  	margin: 100px auto 100px;
+  	margin: 50px auto 100px;
   	padding: 20px 45px;
   	text-align: center;
   	box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);

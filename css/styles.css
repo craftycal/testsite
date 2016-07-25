@@ -339,6 +339,7 @@ article p, article h2 {
 /*  new project  */
 
 .popup-form {
+	overflow: scroll;
   	z-index: 3;	
 	position: absolute;
 	top: 0;

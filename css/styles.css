@@ -10,9 +10,6 @@ body {
 	width: 100%;
 	margin: 0;
 	padding: 0;
-}
-
-#feed_body {
 	overflow: hidden !important;
 }
 

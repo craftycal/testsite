@@ -15,5 +15,8 @@ $(document).ready(function(){
 		$('.popup-form').toggle();
 	});	
 
+	$('#comment-form-controler').click(function() {
+		$('#comment-form').slideToggle();
+	});
 
 });

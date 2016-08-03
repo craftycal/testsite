@@ -9,7 +9,7 @@
 						<button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
 				</div>
-				<a href="index.html" id="log-out">Log Out</a>
+				<a href="/?p=landingPage" id="log-out">Log Out</a>
 			</div>
 		</div>
 
@@ -20,7 +20,7 @@
 
 				<article>
 					<h2>Title</h2>
-					<a href="project.html"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
+					<a href="/?p=projectPage"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
 					<p>username  16 max</p>
 					<p class="date">00/00/00</p>
 				</article>
@@ -31,7 +31,7 @@
 
 				<article>
 					<h2>Title</h2>
-					<a href="project.html"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
+					<a href="/?p=projectPage"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
 					<p class="date">00/00/00</p>
 				</article>	
 

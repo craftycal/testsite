@@ -1,7 +1,7 @@
 
 		<div id="bar">
 			<img src="img/logo-ts.png" alt="test site logo">
-			<a id="back-button" href="feed.html"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
+			<a id="back-button" href="/?p=feedPage"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
 			<div id="navigation">
 				<a href="index.html" id="log-out">Log Out</a>
 			</div>

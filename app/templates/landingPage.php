@@ -22,18 +22,10 @@
 		    
 		    <form action="http://localhost/sandbox/testsite/?p=landing" method="post" class="login-form">
 		    	<input type="text" name="username" placeholder="username"/>
-		    		<?php if( isset ($data['usernameMessage']) ){ ?>
-		    			<p> <?= $data['usernameMessage'] ?> </p>
-		    		<?php } ?>
+
 
 		      <input type="password" name="password" placeholder="password"/>
-		    		<?php if( isset ($data['passwordMessage']) ){ ?>
-		    			<p> <?= $data['passwordMessage'] ?> </p>
-		    		<?php } ?>	
-		    		
-					<?php if( isset($data['loginMessage']) ){ ?>
-						<p> <?= $data['loginMessage'] ?> </p>
-					<?php } ?>	      
+     
 
 		      <input type="submit" class="button_style" name="login" value="Login">
 		      <p class="message">Not registered? <a href="#">Create an account</a></p>

@@ -1,14 +1,12 @@
 <?php
-	
-	
 
 	class page {
+
 		private $_title ='';
 		private $_content ='';
 		private $_templateFile ='';
 		private $_templatePath ='';
 		private $_isLanding = false;
-
 		private function _getPageContent() {
 
 			ob_start( );
@@ -18,7 +16,6 @@
 		}
 
 		function __construct( $templateFileName, $pageTitle ) {
-
 
 			$this->_templateFile = strtolower( $templateFileName );
 			$this->_templatePath = APPROOT . 'app/templates/' . $this->_templateFile  . '.php';
@@ -36,6 +33,5 @@
 			// Includes the master template and injects relevent template content.
 			require_once( APPROOT . 'app/templates/master.php' );
 		}
-
 	}
 ?>

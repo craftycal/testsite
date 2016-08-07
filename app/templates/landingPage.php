@@ -1,10 +1,3 @@
-<?php  require_once( APPROOT . 'app/controllers/landingController.php' );  
-
-	global $data;
-
-
-?>
-	
 
 		<div class="login-page">
 
@@ -20,16 +13,14 @@
 		      <p class="message">Already registered? <a href="#">Sign In</a></p>
 		    </form>
 		    
-		    <form action="http://localhost/sandbox/testsite/?p=landing" method="post" class="login-form">
-		    	<input type="text" name="username" placeholder="username"/>
+		    <form action="index.php?p=login" method="post" class="login-form">
+			    <input type="text" name="username" placeholder="username"/>
 
-
-		      <input type="password" name="password" placeholder="password"/>
-     
-
-		      <input type="submit" class="button_style" name="login" value="Login">
-		      <p class="message">Not registered? <a href="#">Create an account</a></p>
+			    <input type="password" name="password" placeholder="password"/>
+			    <input type="submit" class="button_style" name="login" value="Login">
+			    <p class="message">Not registered? <a href="#">Create an account</a></p>
 		    </form>
+
 		  </div>
 
 		</div>

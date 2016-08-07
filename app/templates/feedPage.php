@@ -9,36 +9,34 @@
 						<button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
 				</div>
-				<a href="/?p=landingPage" id="log-out">Log Out</a>
+				<a href="?p=landing" id="log-out">Log Out</a>
 			</div>
 		</div>
-
-
 		<div id="content-box">
 			<div id="public-projects">
 				<h2>Public Projects.</h2>
 
 				<article>
 					<h2>Title</h2>
-					<a href="/?p=projectPage"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
+					<a href="?p=project"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
 					<p>username  16 max</p>
 					<p class="date">00/00/00</p>
 				</article>
-
 			</div>	
 			<div id="my-projects">
 				<h2>My Projects.</h2>
 
 				<article>
 					<h2>Title</h2>
-					<a href="/?p=projectPage"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
+					<a href="?p=project"><img src="http://placehold.it/200x200" alt="thumbnail"></a>
 					<p class="date">00/00/00</p>
 				</article>	
 
 			</div>	
 		</div>
-
-		<div id="new-project-button-mover"><button id="new-project-button"><i class="fa fa-plus-circle" aria-hidden="true"></i></button></div>
+		<div id="new-project-button-mover">
+			<button id="new-project-button"><i class="fa fa-plus-circle" aria-hidden="true"></i></button>
+		</div>
 		<div  class="popup-form">	
 				<form id="new-project-form">
 						<h2>New Project</h2>	
@@ -59,8 +57,8 @@
 							<br><br>
 
 						<!-- licence  -->
-						<p id="licence-comment"><span><i class="fa fa-bell-o" aria-hidden="true"></i></span> To keep things simple we have abbreviated all the different licences to just open or closed, however please feel free to add and further licence information in the project description.</p>
-						<select name="cars">
+						<p id="licence-comment"><span><i class="fa fa-bell-o" aria-hidden="true"></i></span> To keep things simple we have abbreviated all the different licences to just open or closed, however please feel free to add and further licenceing and/or copyright information in the project description.</p>
+						<select name="licence">
 							 <option value="open">open</option>
 							 <option value="closed">closed</option>
 						</select>
@@ -69,6 +67,7 @@
 						<!-- description  -->
 						<textarea id="description-input" name="description" value="" placeholder="Description" ></textarea>
 						<br><br>
+						<!-- <input type="submit" class="button_style" name="new-project-submit" value='<span><i class="fa fa-times-circle" aria-hidden="true"></i></span>'> -->
 
 						<button type="button" id="back-to-feed"><i class="fa fa-times-circle" aria-hidden="true"></i></button>
 						<button type="submit" id="new-project-submit"><i class="fa fa-check-circle" aria-hidden="true"></i></button>

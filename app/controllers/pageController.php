@@ -33,5 +33,27 @@
 			// Includes the master template and injects relevent template content.
 			require_once( APPROOT . 'app/templates/master.php' );
 		}
+
+	public function mustBeLoggedIn() {
+
+		// If you are not logged in
+		if( !isset($_SESSION['id']) ) {
+			// Redirect the user to the login page
+			header('Location: ?p=landing');
+			die();
+		}
+
+	}
+
+	public function mustBeLoggedOut() {
+
+		// If you are not logged in
+		if( isset($_SESSION['id']) ) {
+			// Redirect the user to the login page
+			header('Location: ?p=feed');
+			die();
+		}
+
+	}
 	}
 ?>

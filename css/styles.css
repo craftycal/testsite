@@ -183,11 +183,11 @@ body {
 	margin-top: 0;
 }
 
-.form button {
+.button_style {
   	font-family: "Roboto", sans-serif;
   	text-transform: uppercase;
   	outline: 0;
-  	background: #FBB03B;
+  	background: #FBB03B !important;
   	width: 100%;
   	border: 0;
   	padding: 15px;
@@ -196,8 +196,8 @@ body {
   	cursor: pointer;
 }
 
-.form button:hover,.form button:active,.form button:focus {
-  	background: #4E4E4E;
+.button_style:hover {
+  	background: #4E4E4E !important;
 }
 
 .form .message {
@@ -565,28 +565,6 @@ form h2 {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*  404  */
 
 #error-head {
@@ -608,7 +586,7 @@ form h2 {
 }
 #error-back {
 	font-family: "Roboto", sans-serif;
-	font-size: 4em;
+	font-size: 2em;
 	color: #FBB03B;
 	text-decoration: none;
 }

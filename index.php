@@ -1,14 +1,19 @@
 <?php 
 
+session_start();
+
 	define( 'APPROOT', dirname(__FILE__) . '/' );
 
-	// Include the master page controller
+	$dbc = new mysqli('localhost', 'root', '', 'testsite_data');
+
+	// include master page controller
 	require_once( APPROOT . 'app/controllers/pageController.php' );
 	$pageObj;
 	
-	// is page specified if not direct to landing page
-	$requestedPage = isset( $_GET['p'] ) ? $_GET['p'] : 'landingPage';
+	// if page is not specified direct to landing page                   + need to add if logged in redirect to feedPage
+	$requestedPage = isset( $_GET['p'] ) ? $_GET['p'] : 'landing';
 	switch( strtolower( $requestedPage ) ) {
+
 		case 'landing':
 			$pageObj = new page( 'landingPage', 'Welcome to testsite, login to get started.' );
 			break;

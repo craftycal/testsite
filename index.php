@@ -1,10 +1,11 @@
-<?php 
+	
+<?php
 
 session_start();
 
 	define( 'APPROOT', dirname(__FILE__) . '/' );
 
-	$dbc = new mysqli('localhost', 'root', '', 'testsite_data');
+
 
 	// include master page controller
 	require_once( APPROOT . 'app/controllers/pageController.php' );
@@ -33,5 +34,5 @@ session_start();
 
 	// Output the page
 	$pageObj->output( );
-
+	
 ?>

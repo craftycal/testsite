@@ -1,48 +1,34 @@
 <?php
 
-class landingController extends PageController {
 
-	public function __construct($dbc) {
+processLogInRequest();
 
-		// Make sure the PageControllers constructor still runs
-		parent::__construct();
+$data = array();
 
-		// loged in?
-		$this->mustBeLoggedOut();
+function processLogInRequest() {
 
-		// require user_data database
-		$this->dbc = $dbc;
-
-		// If the login form has been submitted
-		if( isset( $_POST['login'] ) ) {
-			$this->processLogInRequest();
-		}
-	}
-
-
-private function processLogInRequest() {
+	global $data;
 
 	$totalErrors = 0;
 
 	// Make sure a username has been entered
-	if( strlen($_POST['usernaem']) < 6 ) {
+	if( strlen($_POST['username']) < 6 ) {
 
 		// Prepare error messages
-		$this->data['usernameMessage'] = '* please enter your username';
+		$data['usernameMessage'] = '* please enter your username';
 		$totalErrors++;
 	}
 
 	// Make sure a password has been entered
 	if( strlen($_POST['password']) < 8 ) {
 
-			$this->data['passwordMessage'] = '* please enter your password';
+			$data['passwordMessage'] = '* please enter your password';
 			$totalErrors++;
-
 		}
 
 	if( $totalErrors == 0 ) {
 		// check to see of username matches one from the database
-		$filteredUsername = $this->dbc->real_escape_string( $_POST['username'] );
+		$filteredUsername = ::parent->dbc->real_escape_string( $_POST['username'] );
 
 		// Prepare SQL
 			$sql = "SELECT id, password, roll
@@ -63,42 +49,42 @@ private function processLogInRequest() {
 		if( $passwordResult == true ) {
 				// Log the user in
 				$_SESSION['id'] = $userData['id'];
-				$_SESSION['privilege'] = $userData['privilege'];
+				$_SESSION['roll'] = $userData['roll'];
 
 				header('Location: ?page=feed');
 
 			// if errors display message 'username or password are incorrect'
 			} else {
 				// Prepare error message
-				$this->data['loginMessage'] = '* your Username or Password is incorrect';
-				die();
-	
-
-		
-	};
+				$data['loginMessage'] = '* your Username or Password is incorrect';
+				
+			}	
+		}
+	}
 }
 
-private function processRegistryRequest() {
 
-	$totalErrors = 0;
+// private function processRegistryRequest() {
 
-	// valade username 
+// 	$totalErrors = 0;
 
-	// valade email address 
+// 	// valade username 
 
-	// valade password
+// 	// valade email address 
 
-	// have the agreed to terms
+// 	// valade password
 
-	// if errors display message on relevent input
+// 	// have the agreed to terms
 
-	// invalid username
-	// invalid email addresss
-	// invalid password
+// 	// if errors display message on relevent input
 
-	// if no errors prosses data and login, redirect to feed page
+// 	// invalid username
+// 	// invalid email addresss
+// 	// invalid password
 
-}
+// 	// if no errors prosses data and login, redirect to feed page
+
+// }
 
 
 

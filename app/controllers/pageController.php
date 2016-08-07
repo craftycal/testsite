@@ -1,11 +1,15 @@
 <?php
 	
+	
+
 	class page {
 		private $_title ='';
 		private $_content ='';
 		private $_templateFile ='';
 		private $_templatePath ='';
 		private $_isLanding = false;
+
+		private $dbc;
 
 		private function _getPageContent() {
 
@@ -16,6 +20,8 @@
 		}
 
 		function __construct( $templateFileName, $pageTitle ) {
+
+			$this->dbc = new mysqli('localhost', 'root', '', 'testsite_data'); 
 
 			$this->_templateFile = strtolower( $templateFileName );
 			$this->_templatePath = APPROOT . 'app/templates/' . $this->_templateFile  . '.php';
@@ -34,26 +40,5 @@
 			require_once( APPROOT . 'app/templates/master.php' );
 		}
 
-	public function mustBeLoggedIn() {
-
-		// If you are not logged in
-		if( !isset($_SESSION['id']) ) {
-			// Redirect the user to the login page
-			header('Location: ?p=landing');
-			die();
-		}
-
-	}
-
-	public function mustBeLoggedOut() {
-
-		// If you are not logged in
-		if( isset($_SESSION['id']) ) {
-			// Redirect the user to the login page
-			header('Location: ?p=feed');
-			die();
-		}
-
-	}
 	}
 ?>

@@ -1,14 +1,17 @@
-<?php 
-
+<?php
 
 class loginController extends page{
 
 	public function __construct($database){
 
 		$this->database = $database;
+
+		if( isset( $_POST['login'] ) ) {
+			$this->processLogInRequest();
+		}
 	}
 
-	private function validateLoginRequest() { 
+	private function processLogInRequest() { 
 
 		// start errors at 0
 		$totalErrors = 0;
@@ -24,22 +27,23 @@ class loginController extends page{
 				$this->data['passwordMessage'] = '* please enter your password';
 				$totalErrors++;
 		}
-	}
+
+		// if there are errors reload page, else carry on?
 	
-	private function prossessLoginRequest() { 
+
 		//Function to check if user is in database
-		if( $totalErrors == 0 ) {
+		if( $totalErrors === 0 ) {
 
 			// check to see of username matches one from the database
-			$filteredUsername = ::parent->dbc->real_escape_string( $_POST['username'] );
+			$filteredUsername =	$this->database->real_escape_string( $_POST['username'] );
 
 			// Prepare SQL
-				$sql = "SELECT id, password, roll
+				$sql = "SELECT id, password, privilege
 						FROM users
 						WHERE username = '$filteredUsername'  ";
 
 			// Run the query
-			$result = $this->dbc->query( $sql );
+			$result = $this->database->query( $sql );
 
 			// Is there a result?
 			if( $result->num_rows == 1 ) {	
@@ -47,13 +51,13 @@ class loginController extends page{
 				// check to see of password matches the username 
 				$userData = $result->fetch_assoc();
 				$passwordResult = password_verify( $_POST['password'], $userData['password'] );
-			
+
 				// if no errors login and direct to feed page
 				if( $passwordResult == true ) {
 
 					// Log the user in
 					$_SESSION['id'] = $userData['id'];
-					$_SESSION['roll'] = $userData['roll'];
+					$_SESSION['privilege'] = $userData['privilege'];
 					header('Location: ?page=feed');
 
 				// if errors display message 'username or password are incorrect'

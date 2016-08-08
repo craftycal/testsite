@@ -32,6 +32,11 @@ session_start();
 			$controller = new loginController($database);
 			break;
 
+		case 'registry':
+			require 'app/controllers/registryController.php';
+			$controller = new registryController($database);
+			break;			
+
 		default:
 			$pageObj = new page( 'pageNotFound', 'Page Not Found' );
 			break;

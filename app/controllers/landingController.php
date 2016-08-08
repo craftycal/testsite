@@ -27,6 +27,8 @@ function processLogInRequest() {
 		}
 
 	if( $totalErrors == 0 ) {
+
+		
 		// check to see of username matches one from the database
 		$filteredUsername = ::parent->dbc->real_escape_string( $_POST['username'] );
 

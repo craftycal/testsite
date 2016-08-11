@@ -57,7 +57,7 @@
 							<br><br>
 
 						<!-- licence  -->
-						<p id="licence-comment"><span><i class="fa fa-bell-o" aria-hidden="true"></i></span> To keep things simple we have abbreviated all the different licences to just open or closed, however please feel free to add and further licenceing and/or copyright information in the project description.</p>
+						<p class="alert_comment" ><span><i class="fa fa-bell-o" aria-hidden="true"></i></span> To keep things simple we have abbreviated all the different licences to just open or closed, however please feel free to add and further licenceing and/or copyright information in the project description.</p>
 						<select name="licence">
 							 <option value="open">open</option>
 							 <option value="closed">closed</option>

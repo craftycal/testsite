@@ -7,7 +7,10 @@
 		private $_templateFile ='';
 		private $_templatePath ='';
 		private $_isLanding = false;
+		private $_database;
+
 		private function _getPageContent() {
+
 
 			ob_start( );
 			include_once( $this->_templatePath );
@@ -16,6 +19,8 @@
 		}
 
 		function __construct( $templateFileName, $pageTitle ) {
+
+			$this->_database  = mysqli_connect("localhost","root","","testsite_data");
 
 			$this->_templateFile = strtolower( $templateFileName );
 			$this->_templatePath = APPROOT . 'app/templates/' . $this->_templateFile  . '.php';

@@ -1,85 +1,68 @@
 <?php
 
-class loginController extends page{
 
-	public function __construct($database){
+	function processLogInRequest( $database ) { 
 
-		$this->database = $database;
-
-		if( isset( $_POST['login'] ) ) {
-			$this->processLogInRequest();
+		if ( !isset( $_POST ['username'] )){
+			return;
 		}
-	}
-
-	private function processLogInRequest() { 
 
 		// start errors at 0
 		$totalErrors = 0;
 
+		$post_username = $_POST['username'];
+
 		// has anything been entered in the username field
-		if( strlen($_POST['username']) == 0 ) {
-			$this->data['usernameMessage'] = '* please enter your username';
+		if( strlen( $post_username ) == 0 ) {
+			$data['usernameMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> please enter your username';
 			$totalErrors++;
 		}
 
 		// has anything been entered in the password field
 		if( strlen($_POST['password']) == 0 ) {
-				$this->data['passwordMessage'] = '* please enter your password';
+				$data['passwordMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> please enter your password';
 				$totalErrors++;
 		}
 
-		// if there are errors reload page, else carry on?
-	
 
-		//Function to check if user is in database
-		if( $totalErrors === 0 ) {
+//  not working? v
 
-			// check to see of username matches one from the database
-			$filteredUsername =	$this->database->real_escape_string( $_POST['username'] );
+		if( $totalErrors == 0 ) {
+			
+			$user_verifyed = false;
 
-			// Prepare SQL
-				$sql = "SELECT id, password, privilege
-						FROM users
-						WHERE username = '$filteredUsername'  ";
+			$fetched_user_Data = mysqli_query( $database, "SELECT username, password FROM users WHERE username = '$post_username' " );
+				$userData = $fetched_user_Data->fetch_assoc();
 
-			// Run the query
-			$result = $this->database->query( $sql );
+			if ( $post_username == $userData['username'] ) {
+				$user_verifyed = true;
+			} else {
+				$totalErrors++;
+			}	
 
-			// Is there a result?
-			if( $result->num_rows == 1 ) {	
+			$password_verifyed = false;
 
-				// check to see of password matches the username 
-				$userData = $result->fetch_assoc();
-				$passwordResult = password_verify( $_POST['password'], $userData['password'] );
-
-				// if no errors login and direct to feed page
-				if( $passwordResult == true ) {
-
-					// Log the user in
-					$_SESSION['id'] = $userData['id'];
-					$_SESSION['privilege'] = $userData['privilege'];
-					header('Location: ?page=feed');
-
-				// if errors display message 'username or password are incorrect'
-				} else {
-
-					// error message
-					$data['loginMessage'] = '* your Username or Password was incorrect';
-				}	
+			if ( $_POST['password'] == $userData['password'] ) {
+				$password_verifyed = true;
+			} else {
+				$totalErrors++;
 			}
-		}				
+
+			if ( $password_verifyed = true ) {
+				$_SESSION['id'] = $userData['id'];
+				header('Location:?page=feed');
+			} else {
+				$data['loginMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> invalid Username or Password  ';
+			}
+
+			
+		}
+
+		return $data;
+
 	}
-}
-
-//Get post data
-//var_dump($_POST);
-
-//if user is in database
-
-// $pageObj = new page( 'feedPage', 'This is the feedpage.' );
-// header('Location: index.php?p=feed');
-
-//if not to refresh and show errors
+			
+	
 
 
  ?>

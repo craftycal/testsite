@@ -5,8 +5,6 @@ session_start();
 
 	define( 'APPROOT', dirname(__FILE__) . '/' );
 
-	$database = mysql_connect("localhost","root","","testsite_data");
-
 	// include master page controller
 	require_once( APPROOT . 'app/controllers/pageController.php' );
 	$pageObj;
@@ -26,16 +24,7 @@ session_start();
 		case 'project':
 			$pageObj = new page( 'projectPage', 'information on a specific project' );
 			break;
-
-		case 'login':
-			require 'app/controllers/loginController.php';
-			$controller = new loginController($database);
-			break;
-
-		case 'registry':
-			require 'app/controllers/registryController.php';
-			$controller = new registryController($database);
-			break;			
+		
 
 		default:
 			$pageObj = new page( 'pageNotFound', 'Page Not Found' );

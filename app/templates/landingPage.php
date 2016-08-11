@@ -1,3 +1,11 @@
+<?php 
+
+	require_once ( APPROOT . 'app/controllers/loginController.php' );
+
+	$data = processLogInRequest( $this->_database );
+
+?>
+
 
 		<div class="login-page">
 
@@ -13,25 +21,20 @@
 		      <p class="message">Already registered? <a href="#">Sign In</a></p>
 		    </form>
 		    
-		    <form action="index.php?p=login" method="post" class="login-form">
-			    <input type="text" name="username" placeholder="username"/>
-		    		<?php if( isset ($data['usernameMessage']) ){ ?>
-		    			<p> <?= $data['usernameMessage'] ?> </p>
-		    		<?php } ?>
-
-			    <input type="password" name="password" placeholder="password"/>
+		    <form action="index.php" method="post" class="login-form">
+		  			<?php if( isset ($data['usernameMessage']) ){ ?>
+		    			<p class="alert_comment" > <?= $data['usernameMessage'] ?> </p>
+		    		<?php } ?>			    
+			    <input type="text" name="username" placeholder="username"/>	
 		    		<?php if( isset ($data['passwordMessage']) ){ ?>
-		    			<p> <?= $data['passwordMessage'] ?> </p>
-		    		<?php } ?>	
-
-
+		    			<p class="alert_comment" > <?= $data['passwordMessage'] ?> </p>
+		    		<?php } ?>			    	    
+			    <input type="password" name="password" placeholder="password"/>
 					<?php if( isset($data['loginMessage']) ){ ?>
-						<p> <?= $data['loginMessage'] ?> </p>
-					<?php } ?>
+						<p class="alert_comment" > <?= $data['loginMessage'] ?> </p>
+					<?php } ?>		    					    
 			    <input type="submit" class="button_style" name="login" value="Login">
 			    <p class="message">Not registered? <a href="#">Create an account</a></p>
 		    </form>
-
 		  </div>
-
 		</div>

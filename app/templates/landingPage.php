@@ -3,6 +3,7 @@
 	require_once ( APPROOT . 'app/controllers/loginController.php' );
 
 	$data = processLogInRequest( $this->_database );
+
 ?>
 
 

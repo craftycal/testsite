@@ -29,26 +29,26 @@
 
 		if( $totalErrors == 0 ) {
 			
-			$user_verifyed = false;
+			$user_verified = false;
 
 			$fetched_user_Data = mysqli_query( $database, "SELECT username, password FROM users WHERE username = '$post_username' " );
 				$userData = $fetched_user_Data->fetch_assoc();
 
 			if ( $post_username == $userData['username'] ) {
-				$user_verifyed = true;
+				$user_verified = true;
 			} else {
 				$totalErrors++;
 			}	
 
-			$password_verifyed = false;
+			$password_verified = false;
 
 			if ( $_POST['password'] == $userData['password'] ) {
-				$password_verifyed = true;
+				$password_verified = true;
 			} else {
 				$totalErrors++;
 			}
 
-			if ( $password_verifyed = true ) {
+			if ( $password_verified == true ) {
 				$_SESSION['id'] = $userData['id'];
 				header('Location:?page=feed');
 			} else {

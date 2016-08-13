@@ -17,6 +17,10 @@ session_start();
 			$pageObj = new page( 'landingPage', 'Welcome to testsite, login to get started.' );
 			break;
 
+		case 'registry':
+			$pageObj = new page( 'registryPage', 'Welcome to testsite, register an accou to get started.' );
+			break;	
+
 		case 'feed':
 			$pageObj = new page( 'feedPage', 'index feed of projects' );
 			break;
@@ -25,7 +29,6 @@ session_start();
 			$pageObj = new page( 'projectPage', 'information on a specific project' );
 			break;
 		
-
 		default:
 			$pageObj = new page( 'pageNotFound', 'Page Not Found' );
 			break;

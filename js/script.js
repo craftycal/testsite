@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
 // toggle login and regeister 
-	$('.message a').click(function(){
-	   $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
-	});
+	// $('.message a').click(function(){
+	//    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+	// });
 
 // close new project popup form
 	$('#back-to-feed').click(function() { 

@@ -3,7 +3,7 @@
 			<img src="img/logo-ts.png" alt="test site logo">
 			<a id="back-button" href="#"><i class="fa fa-chevron-circle-left" aria-hidden="true"></i></a>
 			<div id="navigation">
-				<a href="?p=landing" id="log-out">Log Out</a>
+				<a href="?page=logout" id="log-out">Log Out</a>
 			</div>
 		</div>
 
@@ -30,7 +30,7 @@
 						<p id="comment-content">Comment: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed mattis augue, in ornare orci. Pellentesque facilisis luctus eleifend. Fusce posuere, elit ac molestie auctor, felis est ullamcorper arcu, sed euismod leo odio nec ante.</p>
 						<hr>	
 					</div>
-	
+
 					</div>
 				</div>
 			</div>

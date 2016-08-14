@@ -9,7 +9,7 @@
 						<button class="search-button" type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 					</form>
 				</div>
-				<a href="?p=landing" id="log-out">Log Out</a>
+				<a href="?page=logout" id="log-out">Log Out</a>
 			</div>
 		</div>
 		<div id="content-box">

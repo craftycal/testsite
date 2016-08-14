@@ -8,6 +8,7 @@
 		private $_templatePath ='';
 		private $_isLanding = false;
 		private $_database;
+		private $_loginRequired = true;
 
 		private function _getPageContent() {
 
@@ -18,13 +19,17 @@
 			ob_end_clean();
 		}
 
-		function __construct( $templateFileName, $pageTitle ) {
+		function __construct( $templateFileName, $pageTitle, $loginRequired = true ) {
+
+			$this->_loginRequired = $loginRequired;
+
+			$this->isLoggedIn (); 
 
 			$this->_database  = mysqli_connect("localhost","root","","testsite_data");
 
 			$this->_templateFile = strtolower( $templateFileName );
 			$this->_templatePath = APPROOT . 'app/templates/' . $this->_templateFile  . '.php';
-			if( $this->_templateFile  == 'landingPage' ) {
+			if( $this->_templateFile  == 'loginPage' ) {
 				$this->_isLanding = true;
 			} elseif( $this->_templateFile  == 'pageNotFound' ) {
 
@@ -38,5 +43,15 @@
 			// Includes the master template and injects relevent template content.
 			require_once( APPROOT . 'app/templates/master.php' );
 		}
+
+		function isLoggedIn() {
+			if ( $this->_loginRequired == true ) {
+				if ( !isset ( $_SESSION['id'] ) || ( $_SESSION['id'] == null ) ) {
+					header('location: ?page=login');
+				}
+			}
+		}
+
+
 	}
 ?>

@@ -4,13 +4,15 @@
 
 	$data = processLogInRequest( $this->_database );
 
+	echo( $_SESSION['id']);
+
 ?>
 
 
 		<div class="login-page">
 			<div class="form">
 		  		<img id="landing-logo" src="img/logo-ts.png" alt="test site logo">
-				<form action="index.php" method="post" class="login-form">
+				<form action="index.php?page=login" method="post" class="login-form">
 					<?php if( isset ($data['usernameMessage']) ){ ?>
 						<p class="alert_comment" > <?= $data['usernameMessage'] ?> </p>
 					<?php } ?>

@@ -49,7 +49,7 @@
 			}
 
 			if ( $password_verified == true ) {
-				$_SESSION['id'] = $userData['id'];
+				$_SESSION['id'] = $userData['username'];
 				header('Location:?page=feed');
 			} else {
 				$data['loginMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> invalid Username or Password  ';

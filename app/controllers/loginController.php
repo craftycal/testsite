@@ -24,14 +24,11 @@
 				$totalErrors++;
 		}
 
-
-//  not working? v
-
 		if( $totalErrors == 0 ) {
 			
 			$user_verified = false;
 
-			$fetched_user_Data = mysqli_query( $database, "SELECT username, password FROM users WHERE username = '$post_username' " );
+			$fetched_user_Data = mysqli_query( $database, "SELECT user_id, username, password FROM users WHERE username = '$post_username' " );
 				$userData = $fetched_user_Data->fetch_assoc();
 
 			if ( $post_username == $userData['username'] ) {
@@ -42,27 +39,19 @@
 
 			$password_verified = false;
 
-			if ( $_POST['password'] == $userData['password'] ) {
+			if ( password_verify ($_POST['password'], $userData['password']) ) {
 				$password_verified = true;
 			} else {
 				$totalErrors++;
 			}
 
 			if ( $password_verified == true ) {
-				$_SESSION['id'] = $userData['username'];
+				$_SESSION['id'] = $userData['user_id'];
 				header('Location:?page=feed');
 			} else {
 				$data['loginMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> invalid Username or Password  ';
-			}
-
-			
+			}	
 		}
-
 		return $data;
-
 	}
-			
-	
-
-
  ?>

@@ -1,65 +1,68 @@
 <?php 
 
 
-	function processRegistrationForm( $database) {
+	function processRegistrationForm($database) {
+
+		$data = array();
 		
 		$totalErrors = 0;
 
-		if( strlen( $_POST['email']) == 0 ) {
-			$data->emailMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a email address';
+		if ( !isset($_POST['email']) || $_POST['email'] == '' ) {
+			$data['emailMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a email address';
 			$totalErrors++;
 		}
 
-		if( strlen( $_POST['username']) == 0 ) {
-			$data->usernameMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a username';
+		if ( !isset($_POST['username']) || $_POST['username'] == '' ) {
+			$data['usernameMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a username';
 			$totalErrors++;
 		}
 
-		if( strlen( $_POST['password']) == 0 ) {
-			$data->passwordMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a password';
+		if ( !isset($_POST['password']) || $_POST['password'] == '' ) {
+			$data['passwordMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must provide a password';
 			$totalErrors++;
 		}	
 
-		// if ( $_POST['terms'] is checked carry on if not 
-		// $data[->termsMessage = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must accept the Terms and conditions before you are allowed access to the TestSite';	
+		if ( !isset($_POST['terms']) || !$_POST['terms'] == 'checked' ) {
+			$data['termsMessage'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> you must accept the Terms and conditions before you are allowed access to the TestSite';
+			$totalErrors++;
+		}
+
+		if( $totalErrors > 0 ) { 
+			return $data;
+		}
 
 		// is email already in use
 		$filteredEmail = $database->real_escape_string( $_POST['email'] );
 
-		$sql = "SELECT email
-				FROM users
-				WHERE email = '$filteredEmail'  ";
-
-		$result = $database->query($sql);
-
-		if( !$result || $result->num_rows > 0 ) {
-			$data->emailMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> e-Mail already in use';
-			$totalErrors++;
-		}
-
-		// is username already in use
 		$filteredUsername = $database->real_escape_string( $_POST['username'] );
 
-		$sql = "SELECT username
+		$sql = "SELECT email
 				FROM users
-				WHERE username = '$filteredUsername'  ";
+				WHERE email = '$filteredEmail'
+				OR username = '$filteredUsername'  ";
 
 		$result = $database->query($sql);
 
-		if( !$result || $result->num_rows > 0 ) {
-			$data->usernameMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> sorry username already in use';
-			$totalErrors++;
+		if( $result && $result->num_rows > 0 ) {
+
+			while ( $row = $result->fetch_assoc()) {
+				if ($row['username'] == $filteredUsername ) {
+					$data['usernameMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> sorry username already in use';
+					$totalErrors++;
+				}
+				if ($row['email'] == $filteredEmail ) {
+					$data['emailMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> e-Mail already in use';
+					$totalErrors++;
+				}
+			}
 		}
-
-
 
 		// If the password is less than 8 characters long
 		if( strlen($_POST['password']) < 8 ) {
 			// Password is too short
-			$data->passwordMessageRegistry = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> must be at least 8 characters';
+			$data['passwordMessageRegistry'] = '<span><i class="fa fa-bell-o" aria-hidden="true"></i></span> must be at least 8 characters';
 			$totalErrors++;
 		}
-
 
 
 		// Determine if this data is valid to go into the database
@@ -85,17 +88,8 @@
 			// Redirect the user to their stream page
 			header('Location: ?page=feed');
 
+		} else {
+			return $data;
+		}
 	}
-}
-
-
-
-
-
-
-
-
-
-
-
 ?>

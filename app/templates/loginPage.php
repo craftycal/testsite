@@ -4,7 +4,6 @@
 
 	$data = processLogInRequest( $this->_database );
 
-	echo( $_SESSION['id']);
 
 ?>
 
@@ -16,7 +15,7 @@
 					<?php if( isset ($data['usernameMessage']) ){ ?>
 						<p class="alert_comment" > <?= $data['usernameMessage'] ?> </p>
 					<?php } ?>
-					<input type="text" name="username" placeholder="username"/>	
+					<input type="text" name="username" value="<?php echo isset ($_POST['username'])?$_POST['username']:''; ?>" placeholder="username"/>	
 						<?php if( isset ($data['passwordMessage']) ){ ?>
 							<p class="alert_comment" > <?= $data['passwordMessage'] ?> </p>
 						<?php } ?>	
